@@ -1,0 +1,17 @@
+{
+  "apiKey" : "bebf6e8e167746bd8a96c901e8173501",
+  "sources" : [
+	"die-zeit",
+	"al-jazeera-english"
+	],
+  "keywords" : [
+		"Hamburg",
+		"Trump",
+		"G20",
+        "Merkel",
+        "USA",
+        "Syria"
+	],
+   "interval" : "5000"
+}
+
