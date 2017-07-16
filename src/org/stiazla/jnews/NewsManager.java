@@ -2,6 +2,8 @@ package org.stiazla.jnews;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import org.stiazla.jnews.data.NewsConfig;
 import org.stiazla.jnews.interfaces.NewsDataSource;
@@ -37,15 +39,15 @@ public class NewsManager {
 	
 	public void start()
 	{
+		ExecutorService executorService = Executors.newFixedThreadPool(5);
+		
 		//Read web news threads
 		for(NewsCollector newsCollector : newsCollectors){
-			Thread newsThread = new Thread(newsCollector);
-			newsThread.start();
+			executorService.execute(newsCollector);
 		}
 		
 		//Read news from database thread
-		Thread newsReaderThread = new Thread(newsReader);
-		newsReaderThread.start();
+		executorService.execute(newsReader);
 	}
 	
 }
